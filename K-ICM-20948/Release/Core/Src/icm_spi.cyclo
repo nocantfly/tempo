@@ -1,0 +1,11 @@
+../Core/Src/icm_spi.c:8:13:ICM20948_WriteReg	1
+../Core/Src/icm_spi.c:16:16:ICM20948_ReadReg	1
+../Core/Src/icm_spi.c:26:6:ICM20948_SetUserCtrlBits	1
+../Core/Src/icm_spi.c:33:6:ICM20948_ClearUserCtrlBits	1
+../Core/Src/icm_spi.c:40:13:ICM20948_SelectBank	1
+../Core/Src/icm_spi.c:45:6:ICM20948_ReadRegs	1
+../Core/Src/icm_spi.c:57:6:ICM20948_Init	1
+../Core/Src/icm_spi.c:101:6:ICM20948_EnableFIFO	1
+../Core/Src/icm_spi.c:131:6:ICM20948_ReadFIFO	3
+../Core/Src/icm_spi.c:239:6:ICM20948_AutoCalibrate	9
+../Core/Src/icm_spi.c:301:6:ICM20948_ApplyCalibration	2

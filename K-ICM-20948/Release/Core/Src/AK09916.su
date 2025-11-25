@@ -1,0 +1,4 @@
+../Core/Src/AK09916.c:22:6:AK09916_SetContinuousMode	8	static
+../Core/Src/AK09916.c:33:6:AK09916_Init	8	static
+../Core/Src/AK09916.c:67:6:AK09916_ReadMagData	40	static
+../Core/Src/AK09916.c:109:6:Compress	16	static
