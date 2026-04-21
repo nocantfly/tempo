@@ -2,9 +2,9 @@ cd ~/aubo_ws/src/aubo_description/urdf/
 # Lệnh này sẽ sửa lại toàn bộ đường dẫn mesh về chuẩn ROS 2
 sed -i 's|/home/ginger/aubo_ws/src/aubo_description|package://aubo_description|g' aubo_i10.urdf
 
-ls ~/aubo_ws/src/aubo_description/meshes/aubo_i10/visual/
+ls ~/aubo_ws/src/aubo_description/meshes/aubo_i10/
 
-cp -r ~/aubo_ws/src/aubo_description/meshes/aubo_i10/visual/* ~/aubo_ws/src/aubo_description/meshes/aubo_i10/
+cp -r ~/aubo_ws/src/aubo_description/meshes/aubo_i10/* ~/aubo_ws/src/aubo_description/meshes/aubo_i10/
 
 cd ~/aubo_ws
 colcon build --symlink-install --packages-select aubo_description
