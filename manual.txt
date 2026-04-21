@@ -1,0 +1,35 @@
+cd ~/aubo_ws/src/aubo_description/urdf/
+# Lệnh này sẽ sửa lại toàn bộ đường dẫn mesh về chuẩn ROS 2
+sed -i 's|/home/ginger/aubo_ws/src/aubo_description|package://aubo_description|g' aubo_i10.urdf
+
+ls ~/aubo_ws/src/aubo_description/meshes/aubo_i10/visual/
+
+cp -r ~/aubo_ws/src/aubo_description/meshes/aubo_i10/visual/* ~/aubo_ws/src/aubo_description/meshes/aubo_i10/
+
+cd ~/aubo_ws
+colcon build --symlink-install --packages-select aubo_description
+source install/setup.bash
+ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro src/aubo_description/urdf/aubo_i10.urdf)"
+----------------------
+
+source ~/aubo_ws/install/setup.bash
+ros2 run joint_state_publisher_gui joint_state_publisher_gui
+
+-----------------------
+
+source ~/aubo_ws/install/setup.bash
+export MESA_LOADER_DRIVER_NAME=llvmpipe
+rviz2
+
+-----------------------
+
+cd ~/aubo_ws
+# Xóa thư mục cũ để build lại từ đầu
+rm -rf build install log
+# Build lại
+colcon build --packages-select aubo_control_cpp
+source install/setup.bash
+
+ls ~/aubo_ws/install/aubo_control_cpp/lib/aubo_control_cpp/
+
+ros2 run aubo_control_cpp aubo_direct_task
