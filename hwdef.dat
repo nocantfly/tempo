@@ -1,0 +1,33 @@
+MCU STM32H743xx STM32H743xx
+APJ_BOARD_ID 1234
+FLASH_SIZE_KB 2048
+
+# Chạy trực tiếp từ địa chỉ 0x08000000 không dùng bootloader
+FLASH_BOOTLOADER_LOAD_KB 0
+env AP_BOOTLOADER_FLASHING_ENABLED 0
+
+# Khai bao kich thuoc bo nho luu tru Parameters
+define HAL_STORAGE_SIZE 16384
+
+# Vo hieu hoa hoan toan USB cho App de tranh xung dot
+define HAL_USE_USB FALSE
+define HAL_USE_SERIAL_USB FALSE
+
+# Khai bao cong USART1 vat ly (PA9, PA10)
+PA9 USART1_TX USART1
+PA10 USART1_RX USART1
+
+# Vo hieu hoa hoan toan ADC
+define HAL_USE_ADC FALSE
+define STM32_ADC_USE_ADC1 FALSE
+define STM32_ADC_USE_ADC2 FALSE
+
+# Clock 25MHz va nguon LDO
+OSCILLATOR_HZ 25000000
+mcuconf STM32_PWR_CR3 STM32_PWR_CR3_LDOEN
+
+# Khai báo chân LED Đỏ vật lý trên mạch DIYMORE để test xem chip sống hay chết
+PC0 LED OUTPUT LOW
+define HAL_GPIO_A_LED_PIN 0
+
+SERIAL_ORDER USART1
