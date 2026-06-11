@@ -9,10 +9,14 @@ env FLASH_BOOTLOADER_LOAD_KB 32
 FLASH_RESERVE_START_KB 0
 
 # LDO cho mach DIYMORE
-# mcuconf STM32_PWR_CR3 STM32_PWR_CR3_LDOEN
+mcuconf STM32_PWR_CR3 STM32_PWR_CR3_LDOEN
 
 # Tat SERIAL driver dung cach ChibiOS chap nhan
 define HAL_USE_SERIAL FALSE
+
+# Kích hoạt nguồn nội và ép chế độ USB Device
+define HAL_PWR_ENABLE_USB_REGULATOR 1
+define CBRD_OTG_FORCE_DEVICE_MODE 1
 
 # VBUS - ignore hoan toan
 define BOARD_NO_VBUS_SENSING 1
